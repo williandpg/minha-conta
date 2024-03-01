@@ -8,13 +8,12 @@ import com.ions.lightdealer.sdk.model.ElectronicDevice;
  * The type Energy bill.
  */
 public class EnergyBill {
-  // Req. 1 – Create class constructor and attributes.
   Address address;
   boolean residentialPlan;
   double rate = 0.15;
 
   /**
-   * Energy Bill.
+   * Req. 1 – Create class constructor and attributes.
    *
    * @param address          address
    * @param residentialPlan  residential plan
@@ -28,9 +27,13 @@ public class EnergyBill {
 
   /**
    * Req. 2 – Calculates an adjusted tariff for non-residential plans.
+   *
    */
   public double adjustedTariff(double value) {
-    return 0d;
+    if (residentialPlan) {
+      return value;
+    }
+    return (value * 1.10);
   }
 
   /**
