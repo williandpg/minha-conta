@@ -1,6 +1,7 @@
 package com.betrybe.minhaconta.presentation;
 
 import com.betrybe.minhaconta.business.EnergyAccount;
+import com.betrybe.minhaconta.business.EnergyBill;
 import com.ions.lightdealer.sdk.model.Address;
 import com.ions.lightdealer.sdk.model.Client;
 import com.ions.lightdealer.sdk.model.ElectronicDevice;
@@ -99,12 +100,13 @@ public class Application {
   public void registerAddressDevices() {
     String register = ui.inputAddressRegistration();
     Address address = api.findAddress(register);
-    ElectronicDevice electronicDevice = new ElectronicDevice();
     if (address == null) {
       ui.showMessage("Endereço não encontrado!");
     }
     int devices = ui.inputNumberOfDevices();
+
     for (int i = 0; i <= devices; i++) {
+      ElectronicDevice electronicDevice = new ElectronicDevice();
       ui.fillDeviceData(electronicDevice);
       api.addDeviceToAddress(electronicDevice, address);
     }
@@ -114,6 +116,14 @@ public class Application {
    * Req. 9 – Estimates the address energy bill.
    */
   public void estimateAddressBill() {
+    String estimate = ui.inputAddressRegistration();
+    Address address = api.findAddress(estimate);
+    if (estimate == null) {
+      ui.showMessage("Endereço não encontrado!");
+    }
+    EnergyBill energyBill = new EnergyBill(address, true);
+    double value = energyBill.estimate();
+    ui.showMessage("Valor estimado para a conta: " + value);
   }
 
   /**
