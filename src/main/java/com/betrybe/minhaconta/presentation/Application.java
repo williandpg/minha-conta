@@ -124,8 +124,7 @@ public class Application {
       return;
     }
     EnergyBill energyBill = new EnergyBill(address, true);
-    double value = energyBill.estimate();
-    ui.showMessage("Valor estimado para a conta: " + value);
+    ui.showMessage("Valor estimado para a conta: " + energyBill.estimate());
   }
 
   /**
