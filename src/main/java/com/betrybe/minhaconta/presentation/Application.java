@@ -105,7 +105,6 @@ public class Application {
       return;
     }
     int devices = ui.inputNumberOfDevices();
-
     for (int i = 0; i < devices; i++) {
       ElectronicDevice electronicDevice = new ElectronicDevice();
       ui.fillDeviceData(electronicDevice);
@@ -119,7 +118,7 @@ public class Application {
   public void estimateAddressBill() {
     String estimateAddress = ui.inputAddressRegistration();
     Address address = api.findAddress(estimateAddress);
-    if (estimateAddress == null) {
+    if (address == null) {
       ui.showMessage("Endereço não encontrado!");
       return;
     }
