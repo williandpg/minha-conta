@@ -106,7 +106,7 @@ public class Application {
     }
     int devices = ui.inputNumberOfDevices();
 
-    for (int i = 0; i <= devices; i++) {
+    for (int i = 0; i < devices; i++) {
       ElectronicDevice electronicDevice = new ElectronicDevice();
       ui.fillDeviceData(electronicDevice);
       api.addDeviceToAddress(electronicDevice, address);
