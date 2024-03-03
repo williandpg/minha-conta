@@ -30,7 +30,7 @@ public class Application {
     char runOption = ' ';
     while (runOption != '6') {
       String[] runMenu;
-      runMenu = new String[] {
+      runMenu = new String[]{
           "1 - Cadastrar cliente",
           "2 - Cadastrar imóvel de cliente",
           "3 - Cadastrar dispositivos em imóvel",
@@ -102,6 +102,7 @@ public class Application {
     Address address = api.findAddress(register);
     if (address == null) {
       ui.showMessage("Endereço não encontrado!");
+      return;
     }
     int devices = ui.inputNumberOfDevices();
 
@@ -120,6 +121,7 @@ public class Application {
     Address address = api.findAddress(estimate);
     if (estimate == null) {
       ui.showMessage("Endereço não encontrado!");
+      return;
     }
     EnergyBill energyBill = new EnergyBill(address, true);
     double value = energyBill.estimate();
