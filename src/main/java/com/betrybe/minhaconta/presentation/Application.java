@@ -117,9 +117,9 @@ public class Application {
    * Req. 9 – Estimates the address energy bill.
    */
   public void estimateAddressBill() {
-    String estimate = ui.inputAddressRegistration();
-    Address address = api.findAddress(estimate);
-    if (estimate == null) {
+    String estimateAddress = ui.inputAddressRegistration();
+    Address address = api.findAddress(estimateAddress);
+    if (estimateAddress == null) {
       ui.showMessage("Endereço não encontrado!");
       return;
     }
